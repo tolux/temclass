@@ -1,0 +1,20 @@
+{
+  "name": "serviceregistry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ServiceRegistry.js",
+  "scripts": {
+    "start": "npx nodemon --exec npx babel-node -r dotenv/config ./services/start | bunyan"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "bunyan": "^1.8.15",
+    "express": "^4.18.2",
+    "semver": "^7.3.8"
+  }
+}
