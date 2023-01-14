@@ -1,5 +1,6 @@
 import express from "express";
 import ServiceRegistry from "./ServiceRegistry";
+import semver from "semver";
 
 const service = express();
 
@@ -58,8 +59,11 @@ module.exports = (config) => {
   );
 
   // to get a service//
-  service.get("/register/:servicename/:serviceversion/", (req, res, next) => {
-    next();
+  service.get("/find/:servicename/:serviceversion", (req, res) => {
+    const { servicename, serviceversion } = req.params;
+    const svc = serviceRegistry.get(servicename, serviceversion);
+    if (!svc) return res.status(404).json({ result: "service not found" });
+    return res.json(svc);
   });
 
   // eslint-disable-next-line no-unused-vars
