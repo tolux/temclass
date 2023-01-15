@@ -8,6 +8,8 @@ const loggers = {
 };
 
 module.exports = {
+  name: "appmicroservice",
+  version: "1.00",
   applicationName: "testapp",
 
   development: {
