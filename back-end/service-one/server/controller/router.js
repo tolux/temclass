@@ -1,5 +1,5 @@
 import express from "express";
-import mws from "../MiddleWare/mws";
+import mws from "../middleWare/mws";
 
 // router.get("/api/userreg", RouterHandlers.userReg);
 const router = express.Router();

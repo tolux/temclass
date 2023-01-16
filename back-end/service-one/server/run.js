@@ -18,6 +18,8 @@ const log = config[Env].log();
 
 app.set("port", port);
 
+const server = http.createServer(app);
+
 function onError(error) {
   if (error.syscall !== "listen") {
     throw error;
@@ -39,10 +41,7 @@ function onError(error) {
   }
 }
 
-const server = http.createServer(app);
-
 // using cluster
-
 // check if the process that start first
 if (cluster.isMaster) {
   log.info(`Master ${process.pid} is running`);
@@ -65,6 +64,7 @@ const regsiterService = () =>
       server.address().port
     }`
   );
+
 const unregsiterService = () =>
   axios.delete(
     `http:localhost:4000/register/${config.name}/${config.version}/${
@@ -76,7 +76,7 @@ function onListening() {
   regsiterService();
   const interval = setInterval(regsiterService, 20000);
 
-  const cleanup = async () => {
+  const cleanupService = async () => {
     clearInterval(interval);
     await unregsiterService();
   };
@@ -84,15 +84,15 @@ function onListening() {
   // look for different error handle that make occur doing production on node eniroment
   // or the server environment
   process.on("uncaughtException", async () => {
-    await cleanup();
+    await cleanupService();
     process.exit(0);
   });
   process.on("SIGINT", async () => {
-    await cleanup();
+    await cleanupService();
     process.exit(0);
   });
   process.on("SIGTERM", async () => {
-    await cleanup();
+    await cleanupService();
     process.exit(0);
   });
 

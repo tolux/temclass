@@ -1,6 +1,6 @@
 import express from "express";
 import helmet from "helmet";
-import router from "../Controller/Routers";
+import router from "./controller/router";
 import cors from "cors";
 import compression from "compression";
 
@@ -27,17 +27,7 @@ module.exports = (config) => {
     return next();
   });
 
-  // app.use("/", router(config));
-
-  // error handler
   app.use((err, req, res, next) => {
-    // set locals, only providing error in development
-    // res.locals.message = err.message;
-    // res.locals.error = req.app.get("env") === "development" ? err.message : {};
-
-    // // render the error page
-    // res.status(err.status || 500);
-
     res.status(500).send({ mess: config.applicationName });
   });
 

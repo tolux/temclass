@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon --exec npx babel-node -r dotenv/config ./server/start | bunyan"
+    "start": "npx nodemon --exec npx babel-node -r dotenv/config ./service-one/server/run | bunyan"
   },
   "license": "MIT",
   "dependencies": {
