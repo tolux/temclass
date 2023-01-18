@@ -1,5 +1,5 @@
 import express from "express";
-// import router from "./controller/router";
+import router from "./controller/router";
 import cors from "cors";
 import compression from "compression";
 
@@ -10,7 +10,7 @@ module.exports = (config) => {
   app.use(cors({ origin: true }));
 
   //   user middleware
-  //   app.use("/", router);;
+  app.use("/", router);
 
   app.use((err, req, res, next) => {
     res.status(500).send({ mess: config.applicationName });

@@ -1,5 +1,8 @@
 import express from "express";
-import mws from "../middleWare/mws";
+// import mws from "../middleWare/mws";
+import ServiceOne from "../../services/serviceone";
+
+const serviceone = new ServiceOne();
 
 // router.get("/api/userreg", RouterHandlers.userReg);
 const router = express.Router();
@@ -25,5 +28,4 @@ const router = express.Router();
 router.get("/alldata", (req, res) => {
   res.send({ data: " hello world" });
 });
-
 module.exports = router;

@@ -1,16 +1,17 @@
-// import config from "./config";
+import config from "./config";
 import http from "http";
 import cluster from "cluster";
 import os from "os";
-import axios from "axios";
-
+import App from "./app";
+// const config = require("./config");
 // const App = require("./app");
 const numCpus = os.cpus().length;
 
-// const app = App(config);
+const app = App();
 const Env = [process.env.NODE_ENV || "development"];
 
-const port = process.env.PORT || "4000";
+const log = config[Env].log();
+const port = process.env.PORT || "5000";
 
 app.set("port", port);
 
