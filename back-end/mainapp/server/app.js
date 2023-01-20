@@ -3,8 +3,14 @@ import router from "./controller/router";
 import cors from "cors";
 import compression from "compression";
 import ServiceOne from "../services/serviceone";
+import config from "./config";
 
-const serviceone = new ServiceOne();
+const Env = [process.env.NODE_ENV || "development"];
+
+const mainConfig = config[Env];
+
+const serviceone = new ServiceOne(mainConfig);
+
 module.exports = (config) => {
   const app = express();
   app.use(express.json());

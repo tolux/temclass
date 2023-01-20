@@ -13,9 +13,14 @@ module.exports = {
   applicationName: "testapp",
 
   development: {
+    serviceRegistryUrl: "http://localhost:4000",
+    serviceVersionIdentifier: "1.x.x",
     log: loggers.development,
   },
   production: {
+    serviceRegistryUrl: "http://localhost:4000",
+
+    serviceVersionIdentifier: "1.x.x",
     log: loggers.production,
   },
 };

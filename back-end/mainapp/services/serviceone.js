@@ -4,11 +4,12 @@ import CircuitBreaker from "../server/lib/CircuitBreaker";
 
 const circuitBreaker = new CircuitBreaker();
 class ServiceOne {
-  constructor() {}
-
+  constructor(config) {
+    this.config = config;
+  }
   async getService(serviceName) {
     const response = await axios.get(
-      `http://localhost:4000/find/${serviceName}/1`
+      `${this.config.serviceRegistryUrl}/find/${serviceName}/${this.config.serviceVersionIdentifier}`
     );
     return response.data;
   }
