@@ -27,7 +27,7 @@ class ServiceRegistry {
       this.services[key].port = port;
       this.services[key].timestamp = Math.floor(new Date() / 1000);
       this.log.debug(
-        `Added a service ${name} version ${version} at port ${port}`
+        `Added a service ${name} version ${version} at port ${port} ip ${ip}`
       );
       return key;
     }
@@ -42,7 +42,7 @@ class ServiceRegistry {
 
     delete this.services[key];
     this.log.debug(
-      `unregistry a service ${name} version ${version} at port ${port}`
+      `unregistry a service ${name} version ${version} at port ${port} ip ${ip}`
     );
     return key;
   }

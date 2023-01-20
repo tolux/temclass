@@ -9,7 +9,7 @@ const loggers = {
 
 module.exports = {
   name: "service-one",
-  version: "1.00",
+  version: "1.0.0",
   applicationName: "testapp",
 
   development: {

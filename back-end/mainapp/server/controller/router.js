@@ -7,25 +7,16 @@ const serviceone = new ServiceOne();
 // router.get("/api/userreg", RouterHandlers.userReg);
 const router = express.Router();
 
-// module.exports = () => {
+module.exports = (params) => {
+  const { serviceone } = params;
 
-//   // middle on admin route
+  // console.log(serviceone)
 
-// router.use("/api/admin", mws.isAdmin);
+  router.get("/alldata", async (req, res) => {
+    let data = await serviceone.getData();
 
-//   return router;
-// };
+    res.send({ data });
+  });
 
-// router.get("/test", (req, res) => {
-//   throw new Error("is deaing");
-// });
-// router.get("/message", (req, res) => {
-//   res.ses = "am here";
-
-//   res.send({ mess: res.ses });
-// });
-
-router.get("/alldata", (req, res) => {
-  res.send({ data: " hello world" });
-});
-module.exports = router;
+  return router;
+};

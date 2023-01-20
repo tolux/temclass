@@ -3,8 +3,7 @@ import http from "http";
 import cluster from "cluster";
 import os from "os";
 import App from "./app";
-// const config = require("./config");
-// const App = require("./app");
+
 const numCpus = os.cpus().length;
 
 const app = App();

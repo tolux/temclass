@@ -4,3 +4,5 @@
 /back-end/.env
 /back-end/ServiceRegistry/node_modules
 /back-end/ServiceRegistry/.env
+node_modules
+node_modules

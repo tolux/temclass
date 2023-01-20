@@ -8,7 +8,7 @@ class ServiceOne {
 
   async getService(serviceName) {
     const response = await axios.get(
-      `https://localhost:4000/find/${serviceName}/1`
+      `http://localhost:4000/find/${serviceName}/1`
     );
     return response.data;
   }
@@ -22,7 +22,7 @@ class ServiceOne {
 
     return this.callService({
       method: "get",
-      url: `https://${ip}:${port}/alldata`,
+      url: `http://${ip}:${port}/alldata`,
     });
   }
 }

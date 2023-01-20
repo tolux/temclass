@@ -23,7 +23,7 @@ const router = express.Router();
 // });
 
 router.get("/alldata", (req, res) => {
-  res.send({ data: " hello world" });
+  res.send({ data: "hello world" });
 });
 
 module.exports = router;
