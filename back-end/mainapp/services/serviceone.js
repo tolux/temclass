@@ -19,8 +19,8 @@ class ServiceOne {
   }
 
   async getData() {
-    const { ip, port } = this.getService("service-one");
-
+    const { ip, port } = await this.getService("service-one");
+    console.log(ip, port);
     return this.callService({
       method: "get",
       url: `http://${ip}:${port}/alldata`,

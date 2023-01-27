@@ -10,8 +10,6 @@ const router = express.Router();
 module.exports = (params) => {
   const { serviceone } = params;
 
-  // console.log(serviceone)
-
   router.get("/alldata", async (req, res) => {
     let data = await serviceone.getData();
 
